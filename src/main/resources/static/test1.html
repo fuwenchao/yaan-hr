@@ -1,0 +1,106 @@
+<html>
+<title>鼠标移入改变td背景色</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style type="text/css">
+<!-- -->
+</style>
+<script language="javascript">
+<!--
+var highlightcolor = '#c1ebff';
+//此处clickcolor只能用win系统颜色代码才能成功,如果用#xxxxxx的代码就不行,还没搞清楚为什么:(
+var clickcolor = '#51b2f6';
+
+function changeto() {
+    source = event.srcElement;
+    if (source.tagName == "TR" || source.tagName == "TABLE")
+        return;
+    while (source.tagName != "TD")
+        source = source.parentElement;
+    source = source.parentElement;
+    cs = source.children;
+    //alert(cs.length);
+    if (cs[1].style.backgroundColor != highlightcolor && source.id != "nc" && cs[1].style.backgroundColor != clickcolor)
+        for (i = 0; i < cs.length; i++) {
+            cs[i].style.backgroundColor = highlightcolor;
+        }
+}
+
+function changeback() {
+    if (event.fromElement.contains(event.toElement) || source.contains(event.toElement) || source.id == "nc")
+        return
+    if (event.toElement != source && cs[1].style.backgroundColor != clickcolor)
+        //source.style.backgroundColor=originalcolor
+        for (i = 0; i < cs.length; i++) {
+            cs[i].style.backgroundColor = "";
+        }
+}
+
+function clickto() {
+    source = event.srcElement;
+    if (source.tagName == "TR" || source.tagName == "TABLE")
+        return;
+    while (source.tagName != "TD")
+        source = source.parentElement;
+    source = source.parentElement;
+    cs = source.children;
+    //alert(cs.length);
+    if (cs[1].style.backgroundColor != clickcolor && source.id != "nc")
+        for (i = 0; i < cs.length; i++) {
+            cs[i].style.backgroundColor = clickcolor;
+        }
+    else
+        for (i = 0; i < cs.length; i++) {
+            cs[i].style.backgroundColor = "";
+        }
+}
+// -->
+</script>
+
+<body>
+    <table width="100%" class="bg" border=1 cellspacing=0 bordercolorlight="#7b7b7b" bordercolordark="#efefef" onmouseover="changeto()" onmouseout="changeback()">
+        <tr>
+            <td class="num">序号</td>
+            <td width="100px" class="tit">
+                公司名称
+            </td>
+            <td class="tit">
+                订单客户
+            </td>
+            <td class="tit">
+                部门
+            </td>
+            <td class="tit">
+                业务员
+            </td>
+            <td class="tit">
+                交款方式
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>中国电信</td>
+            <td>订单客户名称</td>
+            <td>广告部</td>
+            <td>王天一</td>
+            <td>现金</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>中国移动</td>
+            <td>订单客户名称</td>
+            <td>营销部</td>
+            <td>李小红</td>
+            <td>信用卡</td>
+        </tr>
+        <tr>
+            <td class="num">3</td>
+            <td>中国联通</td>
+            <td>订单客户名称</td>
+            <td>市场部</td>
+            <td>王老二</td>
+            <td>银行卡</td>
+        </tr>
+    </table>
+</body>
+
+</html>

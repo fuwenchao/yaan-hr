@@ -56,7 +56,7 @@ $("#treeview").contextMenu('treeRgihtMenu', {
 function getMechTree() {
     return [{
         text: " 雅安农商行",
-        id: "0201080092",
+        id: "xxxx",
         tags:
             ['available'],
         nodes: [

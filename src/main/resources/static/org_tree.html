@@ -14,6 +14,41 @@
     function hideURLbar() {
         window.scrollTo(0, 1);
     }
+
+    var highlightcolor = '#c1ebff';
+    //此处clickcolor只能用win系统颜色代码才能成功,如果用#xxxxxx的代码就不行,还没搞清楚为什么:(
+    var clickcolor = '#51b2f6';
+
+    function changeto() {
+        source = event.srcElement;
+        if (source.tagName == "TR" || source.tagName == "TABLE")
+            return;
+        while (source.tagName != "TD")
+            source = source.parentElement;
+        source = source.parentElement;
+        cs = source.children;
+        //alert(cs.length);
+        if (cs[1].style.backgroundColor != highlightcolor && source.id != "nc" && cs[1].style.backgroundColor != clickcolor)
+            for (i = 0; i < cs.length; i++) {
+                cs[i].style.backgroundColor = highlightcolor;
+            }
+    }
+
+    function changeback() {
+        if (event.fromElement.contains(event.toElement) || source.contains(event.toElement) || source.id == "nc")
+            return
+        if (event.toElement != source && cs[1].style.backgroundColor != clickcolor)
+            //source.style.backgroundColor=originalcolor
+            for (i = 0; i < cs.length; i++) {
+                cs[i].style.backgroundColor = "";
+            }
+    }
+
+    var obj=document.getElementById("tb");
+for(var i=0;i<obj.rows.length;i++){
+obj.rows[i].onmouseover=function(){this.style.background="#0EF";}
+obj.rows[i].onmouseout=function(){this.style.background="";}
+
     </script>
     <!-- bootstrap-css -->
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -46,6 +81,7 @@ body {
     height: 100%;
     padding: 0;
     margin: 0;
+    font: 14px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
 }
 
 #content,
@@ -56,6 +92,11 @@ body {
 .nav nav-tabs {
     background: blue;
 }
+
+#tb{width:666px;border-collapse:collapse;border:1px solid #EEE;font-size:14px;}
+#tb th{background:#EEE;border-bottom:1px solid #CCC;padding:4px;}
+#tb td{border:1px solid #EEE;padding:4px;}
+
 </style>
 
 <body class="dashboard-page">
@@ -154,7 +195,7 @@ body {
                         </div>
                         <div class="tab-pane fade" id="page2">
                             <form class="form-horizontal" role="form" style="margin-top:10px;">
-                                <table class="table">
+                                <table class="table" onmouseover="changeto()" onmouseout="changeback()">
                                     <thead>
                                         <tr>
                                             <th>机构名称</th>
@@ -170,7 +211,7 @@ body {
                                             <td>网点</td>
                                             <td>正常</td>
                                         </tr>
-                                        <tr>
+                                        <tr class="active">
                                             <td>雨城支行保卫部</td>
                                             <td>B0NR</td>
                                             <td>网点</td>
@@ -182,7 +223,7 @@ body {
                                             <td>网点 </td>
                                             <td>正常 </td>
                                         </tr>
-                                        <tr>
+                                        <tr class="active">
                                             <td>雨城支行贷管理部</td>
                                             <td>B0NR</td>
                                             <td>网点</td>
@@ -225,150 +266,10 @@ body {
                                         <input class="form-control" placeholder="请输入密码" />
                                     </div>
                                 </div>
-                                <div class="form-inline" style="display:flex;margin-top:10px;">
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>账号</label>
-                                        <input type="text" class="form-control" placeholder="请输入账号" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                </div>
-                                <div class="form-inline" style="display:flex;margin-top:10px;">
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>账号</label>
-                                        <input type="text" class="form-control" placeholder="请输入账号" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                </div>
-                                <div class="form-inline" style="display:flex;margin-top:10px;">
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>账号</label>
-                                        <input type="text" class="form-control" placeholder="请输入账号" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                </div>
-                                <div class="form-inline" style="display:flex;margin-top:10px;">
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>账号</label>
-                                        <input type="text" class="form-control" placeholder="请输入账号" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                </div>
-                                <div class="form-inline" style="display:flex;margin-top:10px;">
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>账号</label>
-                                        <input type="text" class="form-control" placeholder="请输入账号" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                </div>
                             </form>
                         </div>
                         <div class="tab-pane fade" id="page2">
                             <form class="form-horizontal" role="form" style="margin-top:10px;">
-                                <div class="form-inline" style="display:flex;margin-top:10px;">
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>账号</label>
-                                        <input type="text" class="form-control" placeholder="请输入账号" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                </div>
-                                <div class="form-inline" style="display:flex;margin-top:10px;">
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>账号</label>
-                                        <input type="text" class="form-control" placeholder="请输入账号" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                </div>
-                                <div class="form-inline" style="display:flex;margin-top:10px;">
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>账号</label>
-                                        <input type="text" class="form-control" placeholder="请输入账号" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                </div>
-                                <div class="form-inline" style="display:flex;margin-top:10px;">
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>账号</label>
-                                        <input type="text" class="form-control" placeholder="请输入账号" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                </div>
-                                <div class="form-inline" style="display:flex;margin-top:10px;">
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>账号</label>
-                                        <input type="text" class="form-control" placeholder="请输入账号" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                    <div class="form-group" style="margin-left:2%;flex:1;">
-                                        <label>密码</label>
-                                        <input class="form-control" placeholder="请输入密码" />
-                                    </div>
-                                </div>
                                 <div class="form-inline" style="display:flex;margin-top:10px;">
                                     <div class="form-group" style="margin-left:2%;flex:1;">
                                         <label>账号</label>
