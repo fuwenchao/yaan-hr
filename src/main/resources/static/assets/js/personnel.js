@@ -1,13 +1,48 @@
-$(function(){
+$(function () {
     $('#treeview').treeview({
         data: getMechTree(),
         levels: 5,
         multiSelect: false,
-        onNodeSelected: function(env, data){
-            alert(data.id);
+        onNodeSelected: function (env, data) {
+            $("li[data-nodeid='"+data.nodeId+"']").contextMenu('treeRgihtMenu', {
+                bindings:
+                    {
+                        'item_1': function (t) {
+                            alert('Trigger was ' + t.id + '\nAction was item_1');
+                        },
+                        'item_2': function (t) {
+                            alert('Trigger was ' + t.id + '\nAction was item_2');
+                        },
+                        'item_3': function (t) {
+                            alert('Trigger was ' + t.id + '\nAction was item_3');
+                        },
+                        'item_4': function (t) {
+                            alert('Trigger was ' + t.id + '\nAction was item_4');
+                        }
+                    }
+            });
         }
     });
 });
+
+$("#treeview").contextMenu('treeRgihtMenu', {
+    bindings:
+        {
+            'item_1': function (t) {
+                alert('Trigger was ' + t.id + '\nAction was item_1');
+            },
+            'item_2': function (t) {
+                alert('Trigger was ' + t.id + '\nAction was item_2');
+            },
+            'item_3': function (t) {
+                alert('Trigger was ' + t.id + '\nAction was item_3');
+            },
+            'item_4': function (t) {
+                alert('Trigger was ' + t.id + '\nAction was item_4');
+            }
+        }
+});
+
 // 机构树形菜单
 function getMechTree() {
     return [{
@@ -16,16 +51,18 @@ function getMechTree() {
         tags:
             ['available'],
         nodes: [
-            { text: "雅安办事处领导班子", id: '0201080093',
-                 nodes: [
-                    {text: "张XX", id: "0201080099", icon:"glyphicon glyphicon-user"},
-                    {text: "李XX", id: "0201080100", icon:"glyphicon glyphicon-user"}
+            {
+                text: "雅安办事处领导班子", id: '0201080093', state: {expanded: false},
+                nodes: [
+                    {text: "张XX", id: "0201080099", icon: "glyphicon glyphicon-user"},
+                    {text: "李XX", id: "0201080100", icon: "glyphicon glyphicon-user"}
                 ]
             },
-            { text: "雅安办事处业务综合科", id: '0201080094'},
-            { text: "雅安办事处稽核保卫科", id: '0201080095'},
-            { text: "雅安办事处业务财务科", id: '0201080096'},
-            { text: "雨城支行", id: '0201080098', state: {expanded: false},
+            {text: "雅安办事处业务综合科", id: '0201080094'},
+            {text: "雅安办事处稽核保卫科", id: '0201080095'},
+            {text: "雅安办事处业务财务科", id: '0201080096'},
+            {
+                text: "雨城支行", id: '0201080098', state: {expanded: false},
                 nodes: [
                     {text: "雨城支行领导班子", id: "0201080099"},
                     {text: "雨城支行办公室", id: "0201080100"},
@@ -49,7 +86,8 @@ function getMechTree() {
                     {text: "雨城支行严桥分理处", id: "0201080121"}
                 ]
             },
-            { text: "名山支行", id: '0201080132', state: {expanded: false},
+            {
+                text: "名山支行", id: '0201080132', state: {expanded: false},
                 nodes: [
                     {text: "名山支行领导", id: "0201080133"},
                     {text: "名山支行保障部", id: "0201080133"},
@@ -65,81 +103,91 @@ function getMechTree() {
 }
 
 
-
 function getPostTree() {
     return [{
         text: "雅安农商行",
         tags:
             ['available'],
         nodes: [
-            { text: "领导班子", id: '00001',
-                    nodes: [
-                    { text: '董事长', id: '00005', icon:"glyphicon glyphicon-user",
-                 nodes: [
-                    {text: "张XX", id: "0201080099", icon:"glyphicon glyphicon-user"}
-                ]},
-                    { text: ' 行长', id: '00006', icon:"glyphicon glyphicon-user",
-                 nodes: [
-                    {text: "张XX", id: "0201080099", icon:"glyphicon glyphicon-user"},
-                    {text: "李XX", id: "0201080100", icon:"glyphicon glyphicon-user"}
-                ]},
-                    { text: ' 副行长', id: '00006', icon:"glyphicon glyphicon-user",
-                 nodes: [
-                    {text: "张XX", id: "0201080099", icon:"glyphicon glyphicon-user"},
-                    {text: "李XX", id: "0201080100", icon:"glyphicon glyphicon-user"}
-                ]}
+            {
+                text: "领导班子", id: '00001',
+                nodes: [
+                    {
+                        text: '董事长', id: '00005',
+                        nodes: [
+                            {text: "张XX", id: "0201080099", icon: "glyphicon glyphicon-user"}
+                        ]
+                    },
+                    {
+                        text: ' 行长', id: '00006',
+                        nodes: [
+                            {text: "张XX", id: "0201080099", icon: "glyphicon glyphicon-user"},
+                            {text: "李XX", id: "0201080100", icon: "glyphicon glyphicon-user"}
+                        ]
+                    },
+                    {
+                        text: ' 副行长', id: '00006',
+                        nodes: [
+                            {text: "张XX", id: "0201080099", icon: "glyphicon glyphicon-user"},
+                            {text: "李XX", id: "0201080100", icon: "glyphicon glyphicon-user"}
+                        ]
+                    }
                 ]
 
             },
-            { text: " 办公室", id: '00004', state: {expanded: false},
+            {
+                text: " 办公室", id: '00004', state: {expanded: false},
                 nodes: [
-                    { text: ' 主任', id: '00005', icon:"glyphicon glyphicon-user"},
-                    { text: ' 副主任', id: '00006', icon:"glyphicon glyphicon-user"},
-                    { text: ' 机要秘书', id: '00006', icon:"glyphicon glyphicon-user"},
-                    { text: ' 综合文秘', id: '00006', icon:"glyphicon glyphicon-user"},
-                    { text: ' 档案管理', id: '00006', icon:"glyphicon glyphicon-user"}
+                    {text: ' 主任', id: '00005'},
+                    {text: ' 副主任', id: '00006'},
+                    {text: ' 机要秘书', id: '00006'},
+                    {text: ' 综合文秘', id: '00006'},
+                    {text: ' 档案管理', id: '00006'}
                 ]
-            
+
             },
-            { text: " 会计财务部", id: '00004', state: {expanded: false},
+            {
+                text: " 会计财务部", id: '00004', state: {expanded: false},
                 nodes: [
-                    { text: ' 总经理', id: '00005', icon:"glyphicon glyphicon-user"},
-                    { text: ' 副总经理', id: '00006', icon:"glyphicon glyphicon-user"},
-                    { text: ' 预算与财务管理岗', id: '00006', icon:"glyphicon glyphicon-user"},
-                    { text: ' 资产负债管理岗', id: '00006', icon:"glyphicon glyphicon-user"},
-                    { text: ' 费用管理岗', id: '00006', icon:"glyphicon glyphicon-user"}
+                    {text: ' 总经理', id: '00005'},
+                    {text: ' 副总经理', id: '00006'},
+                    {text: ' 预算与财务管理岗', id: '00006'},
+                    {text: ' 资产负债管理岗', id: '00006'},
+                    {text: ' 费用管理岗', id: '00006'}
                 ]
-            
+
             },
-            { text: " 业务发展部", id: '00004', state: {expanded: false},
+            {
+                text: " 业务发展部", id: '00004', state: {expanded: false},
                 nodes: [
-                    { text: ' 总经理', id: '00005', icon:"glyphicon glyphicon-user"},
-                    { text: ' 副总经理', id: '00006', icon:"glyphicon glyphicon-user"},
-                    { text: ' 团队管理岗', id: '00006', icon:"glyphicon glyphicon-user"},
-                    { text: ' 营销推进岗', id: '00006', icon:"glyphicon glyphicon-user"},
-                    { text: ' 综合事务岗', id: '00006', icon:"glyphicon glyphicon-user"}
+                    {text: ' 总经理', id: '00005'},
+                    {text: ' 副总经理', id: '00006'},
+                    {text: ' 团队管理岗', id: '00006'},
+                    {text: ' 营销推进岗', id: '00006'},
+                    {text: ' 综合事务岗', id: '00006'}
                 ]
-            
+
             },
-            { text: " 人力资源部", id: '00004', state: {expanded: false},
+            {
+                text: " 人力资源部", id: '00004', state: {expanded: false},
                 nodes: [
-                    { text: ' 总经理', id: '00005', icon:"glyphicon glyphicon-user"},
-                    { text: ' 副总经理', id: '00006', icon:"glyphicon glyphicon-user"},
-                    { text: ' 员工关系管理岗', id: '00006', icon:"glyphicon glyphicon-user"},
-                    { text: ' 薪酬管理岗', id: '00006', icon:"glyphicon glyphicon-user"},
-                    { text: ' 绩效管理岗', id: '00006', icon:"glyphicon glyphicon-user"}
+                    {text: ' 总经理', id: '00005'},
+                    {text: ' 副总经理', id: '00006'},
+                    {text: ' 员工关系管理岗', id: '00006'},
+                    {text: ' 薪酬管理岗', id: '00006'},
+                    {text: ' 绩效管理岗', id: '00006'}
                 ]
-            
+
             }
         ]
     }];
 }
 
-function changeTreeInfo(name){
-    var dataArr;
-    if("post" === name){
+function changeTreeInfo(name) {
+    let dataArr;
+    if ("post" === name) {
         dataArr = getPostTree();
-    }else if("mech" === name){
+    } else if ("mech" === name) {
         dataArr = getMechTree();
     }
     $('#treeview').treeview({
