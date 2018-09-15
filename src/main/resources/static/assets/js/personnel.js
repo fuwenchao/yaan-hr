@@ -4,6 +4,15 @@ $(function () {
         levels: 5,
         multiSelect: false,
         onNodeSelected: function (env, data) {
+            if(data.id === "xxxx"){
+                $("#searchorgemp").css("display","block");
+                $("#view").css("display","none");
+
+            }else{
+                $("#searchorgemp").css("display","none");
+                $("#view").css("display","block");
+            }
+
             $("li[data-nodeid='"+data.nodeId+"']").contextMenu('treeRgihtMenu', {
                 bindings:
                     {
