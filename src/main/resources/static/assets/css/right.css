@@ -1,0 +1,22 @@
+/*css代码*/
+#right-menu{
+    width: 0;
+    overflow: hidden;
+    box-shadow: 0 1px 1px #888,1px 0 1px #ccc;
+    position: absolute;
+    background:white;
+    z-index:10000;
+}
+.menu-item{
+    width: 130px;
+    height: 35px;
+    line-height: 30px;
+    padding-left:10px;
+}
+.menu-item:not(:first-child){
+    border-top:1px solid #D6D5D5;
+}
+.menu-item:hover{
+    background-color:#DDD;
+    cursor:pointer;
+}
