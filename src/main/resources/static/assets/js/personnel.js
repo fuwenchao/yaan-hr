@@ -184,23 +184,23 @@ function nodeSelected(env, data){
 
 function searchInfo(data){
     $("#searchorgemp").show();
-    $("#emp-pageinfo").hide();
-    $("#mechpageinfo").hide();
+    $("#emp_pageinfo").hide();
+    $("#org_pageinfo").hide();
 }
 
 function employeeInfo(user){
-    $("#mechpageinfo").hide();
+    $("#org_pageinfo").hide();
     $("#searchorgemp").hide();
-    $("#emp-pageinfo").load("assets/html/emp_baseinfo.html");
-    $("#emp-pageinfo").attr("user", user);
-    $("#emp-pageinfo").show();
+    $("#emp_pageinfo").load("assets/html/emp_baseinfo.html");
+    $("#emp_pageinfo").attr("user", user);
+    $("#emp_pageinfo").show();
 }
 
 function orgInfo(code){
-    $("#mechpageinfo").load("assets/html/orgemp_info.html");
-    $("#mechpageinfo").attr("code", code);
-    $("#mechpageinfo").show();
-    $("#emp-pageinfo").hide();
+    $("#org_pageinfo").load("assets/html/orgemp_info.html");
+    $("#org_pageinfo").attr("code", code);
+    $("#org_pageinfo").show();
+    $("#emp_pageinfo").hide();
     $("#searchorgemp").hide();
 }
 

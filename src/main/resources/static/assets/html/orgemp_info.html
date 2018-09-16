@@ -10,7 +10,7 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">机构代码</label>
                 <div class="col-sm-4">
-                    <input class="form-control" id="org_code" type="text" value="">
+                    <input class="form-control" id="org_page_code" type="text">
                 </div>
                 <label class="col-sm-2 control-label">
                     机构名称
@@ -186,7 +186,7 @@
 </div>
 <script type="text/javascript">
     $(function(){
-        $("#org_code").val($("#right_info_tab").parent().attr("code"));
+        $("#org_page_code").val($("#org_pageinfo").attr("code"));
         employeeClick();
     });
 
