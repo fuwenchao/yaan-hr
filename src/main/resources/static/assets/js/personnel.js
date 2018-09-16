@@ -12,44 +12,10 @@ $(function () {
                 $("#searchorgemp").css("display","none");
                 $("#view").css("display","block");
             }
-
-            $("li[data-nodeid='"+data.nodeId+"']").contextMenu('treeRgihtMenu', {
-                bindings:
-                    {
-                        'item_1': function (t) {
-                            alert('Trigger was ' + t.id + '\nAction was item_1');
-                        },
-                        'item_2': function (t) {
-                            alert('Trigger was ' + t.id + '\nAction was item_2');
-                        },
-                        'item_3': function (t) {
-                            alert('Trigger was ' + t.id + '\nAction was item_3');
-                        },
-                        'item_4': function (t) {
-                            alert('Trigger was ' + t.id + '\nAction was item_4');
-                        }
-                    }
-            });
+            rightMenu.ele = data.text;
+            rightMenu.eleLoc = rightMenu.elemLocation($("li[data-nodeid='" + data.nodeId + "']"));
         }
     });
-});
-
-$("#treeview").contextMenu('treeRgihtMenu', {
-    bindings:
-        {
-            'item_1': function (t) {
-                alert('Trigger was ' + t.id + '\nAction was item_1');
-            },
-            'item_2': function (t) {
-                alert('Trigger was ' + t.id + '\nAction was item_2');
-            },
-            'item_3': function (t) {
-                alert('Trigger was ' + t.id + '\nAction was item_3');
-            },
-            'item_4': function (t) {
-                alert('Trigger was ' + t.id + '\nAction was item_4');
-            }
-        }
 });
 
 // 机构树形菜单
