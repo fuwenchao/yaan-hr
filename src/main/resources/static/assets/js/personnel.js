@@ -174,6 +174,6 @@ function nodeSelected(env, data){
         $("#searchorgemp").css("display","none");
         $("#view").css("display","block");
     }
-    rightMenu.ele = data.text;
     rightMenu.eleLoc = rightMenu.elemLocation($("li[data-nodeid='" + data.nodeId + "']"));
+    rightMenu.ele = data.text;
 }
