@@ -1,0 +1,4 @@
+#treeRgihtMenu{border:none;background:#FFF;width:150px;display:none;position:absolute;z-index:10000;}
+#treeRgihtMenu li{list-style-type:none;height:40px;line-height:40px;padding-left:20px;}
+#treeRgihtMenu li:not(:first-child){border-top:1px solid #eee;}
+#treeRgihtMenu li:hover{background:#DDD;cursor:pointer;}

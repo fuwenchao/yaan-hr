@@ -73,7 +73,8 @@ obj.rows[i].onmouseout=function(){this.style.background="";}
     <!-- bootstrap tree -->
     <link rel="stylesheet" href="css/bootstrap-treeview.css">
     <!-- // bootstrap tree -->
-    <script src="assets/js/jquery.contextmenu.r2.js"></script>
+    <script src="assets/js/right-menu.js"></script>
+    <link rel="stylesheet" href="assets/css/right-menu.css">
 </head>
 <style>
 html,
@@ -108,6 +109,21 @@ body {
         <div class="import-html" src="common/header.html"></div>
         <!--// nav-->
         <div class="main-grid" style="height:86%;">
+            <div class="contextMenu" id="treeRgihtMenu">
+                <ul>
+                    <li onclick="addJG(this)">增加</li>
+                    <li id="item_2">删除</li>
+                    <li id="item_3">维护</li>
+                    <li id="item_4">刷新</li>
+                </ul>
+            </div>
+            <script type="text/javascript">
+                const rightMenu = new RightMenu("treeRgihtMenu");
+                rightMenu.start();
+                function addJG(node){
+                    alert($(node).parent().parent().attr("data"));
+                }
+            </script>
             <!-- 主要内容-->
             <div id="content" class="row-fluid fullsrc">
                 <div class="col-md-3 fullsrc" style="padding-top:5px;overflow-y:scroll;">
@@ -118,14 +134,6 @@ body {
                         </select>
                     </div>
                     <div id="treeview"></div>
-                    <div class="contextMenu" id="treeRgihtMenu">
-                        <ul>
-                            <li id="item_1">选项一</li>
-                            <li id="item_2">选项二</li>
-                            <li id="item_3">选项三</li>
-                            <li id="item_4">选项四</li>
-                        </ul>
-                    </div>
                 </div>
                 <div id="view" class="col-md-9" style="height:500px;">
                     <ul id="right_info_tab" class="nav nav-tabs">
