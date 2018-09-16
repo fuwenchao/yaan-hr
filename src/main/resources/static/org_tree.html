@@ -14,7 +14,6 @@
     function hideURLbar() {
         window.scrollTo(0, 1);
     }
-
     </script>
     <!-- bootstrap-css -->
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -48,8 +47,15 @@ body {
     height: 100%;
     padding: 0;
     margin: 0;
-    font: 14px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
+    font: 14px Helvetica Neue, Helvetica, PingFang SC, Tahoma, Arial, sans-serif;
 }
+
+
+.glyphicon-plus , .glyphicon-minus ,.glyphicon-user{
+    color: #00bcd4;
+}
+
+
 
 #content,
 .fullsrc {
@@ -60,10 +66,23 @@ body {
     background: blue;
 }
 
-#tb{width:666px;border-collapse:collapse;border:1px solid #EEE;font-size:14px;}
-#tb th{background:#EEE;border-bottom:1px solid #CCC;padding:4px;}
-#tb td{border:1px solid #EEE;padding:4px;}
+#tb {
+    width: 666px;
+    border-collapse: collapse;
+    border: 1px solid #EEE;
+    font-size: 14px;
+}
 
+#tb th {
+    background: #EEE;
+    border-bottom: 1px solid #CCC;
+    padding: 4px;
+}
+
+#tb td {
+    border: 1px solid #EEE;
+    padding: 4px;
+}
 </style>
 
 <body class="dashboard-page">
@@ -84,11 +103,12 @@ body {
                 </ul>
             </div>
             <script type="text/javascript">
-                const rightMenu = new RightMenu("treeRgihtMenu");
-                rightMenu.start();
-                function addJG(node){
-                    alert($(node).parent().parent().attr("data"));
-                }
+            const rightMenu = new RightMenu("treeRgihtMenu");
+            rightMenu.start();
+
+            function addJG(node) {
+                alert($(node).parent().parent().attr("data"));
+            }
             </script>
             <!-- 主要内容-->
             <div id="content" class="row-fluid fullsrc">
