@@ -109,7 +109,7 @@ body a:hover{
 		.form-inline .form-group{margin-top:0}
 		.form-inline .form-control{display:inline-block}
 	}
-	.form-horizontal .control-label,.form-horizontal .radio,.form-horizontal .checkbox,.form-horizontal .radio-inline,.form-horizontal .checkbox-inline{margin-bottom:5px;padding-top:6px}@media(min-width:768px){.form-horizontal .control-label{text-align:right}}.form-group:last-child{margin-bottom:0}select{font-family:sans-serif}
+	.form-horizontal .control-label,.form-horizontal .radio,.form-horizontal .checkbox,.form-horizontal .radio-inline,.form-horizontal .checkbox-inline{margin-bottom:5px;padding-top:6px}@media(min-width:768px){.form-horizontal .control-label{text-align:right}}.form-group{margin-bottom: 5px;}.form-group:last-child{margin-bottom:20px}select{font-family:sans-serif}
 	.ios-device select{-webkit-appearance:menulist;-moz-appearance:menulist}
 	textarea{height:auto;width:100%;max-width:100%}
 	textarea.no-resize{resize:none}
