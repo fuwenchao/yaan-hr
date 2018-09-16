@@ -4,19 +4,11 @@ $(function () {
         levels: 5,
         multiSelect: false,
         onNodeSelected: function (env, data) {
-            if(data.id === "xxxx"){
-                $("#searchorgemp").css("display","block");
-                $("#view").css("display","none");
-
-            }else{
-                $("#searchorgemp").css("display","none");
-                $("#view").css("display","block");
-            }
-            rightMenu.ele = data.text;
-            rightMenu.eleLoc = rightMenu.elemLocation($("li[data-nodeid='" + data.nodeId + "']"));
+            nodeSelected(env, data);
         }
     });
 });
+
 
 // 机构树形菜单
 function getMechTree() {
@@ -166,6 +158,22 @@ function changeTreeInfo(name) {
         dataArr = getMechTree();
     }
     $('#treeview').treeview({
-        data: dataArr
+        data: dataArr,
+        onNodeSelected: function(env, data){
+            nodeSelected(env, data);
+        }
     });
+}
+
+function nodeSelected(env, data){
+    if(data.id === "xxxx"){
+        $("#searchorgemp").css("display","block");
+        $("#view").css("display","none");
+
+    }else{
+        $("#searchorgemp").css("display","none");
+        $("#view").css("display","block");
+    }
+    rightMenu.ele = data.text;
+    rightMenu.eleLoc = rightMenu.elemLocation($("li[data-nodeid='" + data.nodeId + "']"));
 }
