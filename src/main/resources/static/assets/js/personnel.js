@@ -1,6 +1,6 @@
 $(function () {
     $('#treeview').treeview({
-        data: getMechTree(),
+        data: getOrgTree(),
         levels: 5,
         multiSelect: false,
         onNodeSelected: function (env, data) {
@@ -13,7 +13,7 @@ $(function () {
 
 
 // 机构树形菜单
-function getMechTree() {
+function getOrgTree() {
     return [{
         text: " 雅安农商行",
         id: "yafram",
@@ -157,7 +157,7 @@ function changeTreeInfo(name) {
     if ("post" === name) {
         dataArr = getPostTree();
     } else if ("mech" === name) {
-        dataArr = getMechTree();
+        dataArr = getOrgTree();
     }
     $('#treeview').treeview({
         data: dataArr,
