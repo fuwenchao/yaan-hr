@@ -14,7 +14,7 @@ $(function () {
 function getMechTree() {
     return [{
         text: " 雅安农商行",
-        id: "xxxx",
+        id: "yafram",
         tags:
             ['available'],
         nodes: [
@@ -166,26 +166,40 @@ function changeTreeInfo(name) {
 }
 
 function nodeSelected(env, data){
-    if(data.id === "xxxx"){
-        $("#searchorgemp").css("display","block");
-        $("#view").css("display","none");
-
-    }else{
-        $("#searchorgemp").css("display","none");
-        $("#view").css("display","block");
-    }
     // 是用户
     if(checkEmployee(data)){
-        $("#mechpageinfo").hide();
-        $("#emp-pageinfo").load("assets/html/emp_baseinfo.html");
-        $("#emp-pageinfo").attr("user", data.text);
-        $("#emp-pageinfo").show();
+        employeeInfo(data.text);
     }else{
-        $("#mechpageinfo").show();
-        $("#emp-pageinfo").hide();
+        if(data.id === "yafram"){
+            searchInfo(data);
+        }else {
+            orgInfo(data.id);
+        }
     }
     rightMenu.eleLoc = rightMenu.elemLocation($("li[data-nodeid='" + data.nodeId + "']"));
     rightMenu.ele = data.text;
+}
+
+function searchInfo(data){
+    $("#searchorgemp").show();
+    $("#emp-pageinfo").hide();
+    $("#mechpageinfo").hide();
+}
+
+function employeeInfo(user){
+    $("#mechpageinfo").hide();
+    $("#searchorgemp").hide();
+    $("#emp-pageinfo").load("assets/html/emp_baseinfo.html");
+    $("#emp-pageinfo").attr("user", user);
+    $("#emp-pageinfo").show();
+}
+
+function orgInfo(code){
+    $("#mechpageinfo").load("assets/html/orgemp_info.html");
+    $("#mechpageinfo").attr("code", code);
+    $("#mechpageinfo").show();
+    $("#emp-pageinfo").hide();
+    $("#searchorgemp").hide();
 }
 
 function checkEmployee(data){
