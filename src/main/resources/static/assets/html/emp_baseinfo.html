@@ -1,0 +1,48 @@
+<div id="emp-baseinfo">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#baseinfo" role="tab" data-toggle="tab">基本信息</a></li>
+        <li><a href="#eduinfo" data-toggle="tab">教育信息</a></li>
+        <li><a href="#workinfo" data-toggle="tab">工作经历</a></li>
+        <li><a href="#rapinfo" data-toggle="tab">奖惩</a></li>
+        <li><a href="#trexinfo" data-toggle="tab">培训经历</a></li>
+        <li><a href="#familymember" data-toggle="tab">家庭成员</a></li>
+        <li><a href="#titleinfo" data-toggle="tab">职称</a></li>
+        <li><a href="#contractinfo" data-toggle="tab">合同</a></li>
+        <li><a href="#vacation" data-toggle="tab">休假信息</a></li>
+    </ul>
+</div>
+<div class="tab-content">
+    <div class="tab-pane fade in active" id="baseinfo">
+        基本信息
+    </div>
+    <div class="tab-pane fade" id="eduinfo">
+        教育信息
+    </div>
+    <div class="tab-pane fade" id="workinfo">
+        工作经历
+    </div>
+    <div class="tab-pane fade" id="rapinfo">
+        奖惩
+    </div>
+    <div class="tab-pane fade" id="trexinfo">
+        培训经历
+    </div>
+    <div class="tab-pane fade" id="familymember">
+        家庭成员
+    </div>
+    <div class="tab-pane fade" id="titleinfo">
+        职称
+    </div>
+    <div class="tab-pane fade" id="contractinfo">
+        合同
+    </div>
+    <div class="tab-pane fade" id="vacation">
+        休假信息
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        let user = $("#emp-baseinfo").parent().attr("user");
+        $("#baseinfo").html(user);
+    });
+</script>

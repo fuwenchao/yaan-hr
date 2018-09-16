@@ -174,6 +174,26 @@ function nodeSelected(env, data){
         $("#searchorgemp").css("display","none");
         $("#view").css("display","block");
     }
+    // 是用户
+    if(checkEmployee(data)){
+        $("#mechpageinfo").hide();
+        $("#emp-pageinfo").load("assets/html/emp_baseinfo.html");
+        $("#emp-pageinfo").attr("user", data.text);
+        $("#emp-pageinfo").show();
+    }else{
+        $("#mechpageinfo").show();
+        $("#emp-pageinfo").hide();
+    }
     rightMenu.eleLoc = rightMenu.elemLocation($("li[data-nodeid='" + data.nodeId + "']"));
     rightMenu.ele = data.text;
 }
+
+function checkEmployee(data){
+    let icon = data.icon;
+    if(undefined === icon){
+        return false;
+    }
+    return icon.indexOf("user") !== -1;
+
+}
+
