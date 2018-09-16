@@ -7,6 +7,8 @@ $(function () {
             nodeSelected(env, data);
         }
     });
+    // 默认加载搜索界面
+    searchorgempInfo();
 });
 
 
@@ -200,6 +202,10 @@ function orgInfo(code){
     $("#mechpageinfo").show();
     $("#emp-pageinfo").hide();
     $("#searchorgemp").hide();
+}
+
+function searchorgempInfo(){
+    $("#searchorgemp").load("assets/html/searchorgemp_info.html");
 }
 
 function checkEmployee(data){
