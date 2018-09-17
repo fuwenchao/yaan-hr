@@ -193,7 +193,7 @@
     // 员工信息单击
     function employeeClick(){
         $("#employeeInfo tbody tr").click(function(){
-            let empId = $(this).find("td:nth-child(2)").text();
+            let empId = $(this).find("td:nth-child(1)").text();
             // 显示员工信息
             employeeInfo(empId);
         });

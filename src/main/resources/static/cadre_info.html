@@ -29,6 +29,10 @@
     <script src="js/jquery.cookie.js"></script>
     <!--公用css-->
     <link rel="stylesheet" href="assets/css/common.css">
+    <style type="text/css">
+        .tab_before_oper{width:1%;}
+    </style>
+
 </head>
 
 <body class="dashboard-page">
@@ -39,16 +43,115 @@
     <!--nav-->
     <div class="import-html" src="common/header.html"></div>
     <!--// nav-->
-    <div class="main-grid" style="height:86%;">
-        干部管理
+    <div class="main-grid container-fluid">
+        <div id="cadre_search">
+            <form class="form-horizontal" role="form" style="margin-top:10px;">
+                <div class="form-group" style="margin-top:30px;">
+                    <div class="col-sm-2 control-label " style="margin-left: -30px">
+                        <label>员工号</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" placeholder="请输入员工号" />
+                    </div>
+                    <div class="col-sm-2 control-label" style="margin-left: -50px">
+                        <label>员工姓名</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input class="form-control" placeholder="请输入姓名" />
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top:20px;">
+                    <div class="col-sm-2 control-label " style="margin-left: -30px">
+                        <label>所在机构</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" placeholder="请输入机构号或者机构名" />
+                    </div>
+                    <div class="col-sm-2 control-label" style="margin-left: -50px">
+                        <label>所在岗位</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input class="form-control" placeholder="请输入岗位名称" />
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top:30px;">
+                    <div class="col-sm-6 control-label " style="margin-left: -100px">
+                        <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                            查询
+                        </button>
+                    </div>
+                    <div class="col-sm-6 control-label " style="margin-left: -350px">
+                        <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                            重置
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="cadre_list">
+            <div class="container-fluid">
+                <table  class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th class="tab_before_oper">
+                            <label><input type="checkbox" onclick="checkboxClick(this);"></label>
+                        </th>
+                        <th>干部姓名</th>
+                        <th>干部编号</th>
+                        <th>所在岗位</th>
+                        <th>干部状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tab_before_oper">
+                            <label><input type="checkbox" name="sub_checkbox"></label>
+                        </td>
+                        <td>张XXX</td>
+                        <td>0000001</td>
+                        <td>董事长</td>
+                        <td>正常</td>
+                    </tr>
+                    <tr class="active">
+                        <td class="tab_before_oper">
+                            <label><input type="checkbox" name="sub_checkbox"></label>
+                        </td>
+                        <td>马XXX</td>
+                        <td>0000002</td>
+                        <td>总经理</td>
+                        <td>正常</td>
+                    </tr>
+                    <tr>
+                        <td class="tab_before_oper">
+                            <label><input type="checkbox" name="sub_checkbox"></label>
+                        </td>
+                        <td>李XXX</td>
+                        <td>0000003</td>
+                        <td>总监</td>
+                        <td>正常</td>
+                    </tr>
+                    <tr class="active">
+                        <td class="tab_before_oper">
+                            <label><input type="checkbox" name="sub_checkbox"></label>
+                        </td>
+                        <td>周XXX</td>
+                        <td>0000004</td>
+                        <td>主管</td>
+                        <td>正常</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <!-- footer -->
+     <!--footer-->
     <!--<div class="import-html" src="common/footer.html"></div>-->
-    <!-- //footer -->
+     <!--//footer-->
 </section>
 <script src="js/bootstrap.js"></script>
 <script src="js/proton.js"></script>
 <script src="js/import.js"></script>
+<script src="assets/js/checkbox.js"></script>
 </body>
 
 </html>
