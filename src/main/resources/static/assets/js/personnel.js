@@ -228,6 +228,10 @@ function searchInfo(data) {
     $("#org_pageinfo").hide();
 }
 
+function inoutinfo(data) {
+    $("#emp_inout_info").show();
+}
+
 function employeeInfo(user) {
     $("#org_pageinfo").hide();
     $("#searchorgemp").hide();
