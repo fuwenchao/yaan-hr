@@ -477,7 +477,10 @@ body a:hover{
     background-color: #fff;
     -webkit-box-shadow: 0 4px 10px -2px rgba(0,0,0,0.05);
     box-shadow: 0 4px 10px -2px rgba(0,0,0,0.05);
-    padding: 1em;
+    padding-top:1em;
+	padding-left:1em;
+	padding-right:1em;
+	padding-bottom:4px;
 }
 .logo {
     float: left;

@@ -13,4 +13,6 @@ $(function(){
 function cadreInfoView(node){
     $("#cadre_container").attr("caname", $(node).find("td:nth-child(2)").text());
     $("#cadre_container").load("assets/html/cadre_personal_info.html");
+    let link = "<a href='cadre_info.html'>干部管理</a>&nbsp;/&nbsp;<a>干部信息</a>";
+    setPageNav(link);
 }
