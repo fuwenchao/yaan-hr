@@ -523,10 +523,11 @@
                     </div>
                     <div class="col-sm-12 pd-0">
                         <div class="col-sm-8 pd-0">
-                            <input type="text" class="form-control" placeholder="上传文件进行元数据对比">
+                            <input type="text" class="form-control" id="importFileInputInfo" placeholder="上传文件进行元数据对比">
                         </div>
                         <div class="col-sm-4">
-                            <button type="button" class="btn btn-sm btn-info pb-1">
+                            <input type="file" id="importFile" onchange="selectedImportFile(this)" style="display:none;"/>
+                            <button type="button" onclick="uploadFileClick()" class="btn btn-sm btn-info pb-1">
                                 <i class="glyphicon glyphicon-open"></i>&nbsp;选择上传文件
                             </button>
                         </div>
@@ -553,5 +554,11 @@
 $(function() {
     let name = $("#cadre_personal_info").parent().attr("caname");
     $("#cadrename").val(name);
-})
+});
+function uploadFileClick(){
+    $("#importFile").click();
+}
+function selectedImportFile(node){
+    $("#importFileInputInfo").val($(node).val());
+}
 </script>
