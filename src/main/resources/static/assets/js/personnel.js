@@ -216,8 +216,10 @@ function nodeSelected(env, data) {
             orgInfo(data.id);
         }
     }
-    rightMenu.eleLoc = rightMenu.elemLocation($("li[data-nodeid='" + data.nodeId + "']"));
-    rightMenu.ele = data.text;
+    // 右键菜单
+    $("#treeRgihtMenu").attr("data", data.text);
+    /*rightMenu.eleLoc = rightMenu.elemLocation($("li[data-nodeid='" + data.nodeId + "']"));
+    rightMenu.ele = data.text;*/
 }
 
 function searchInfo(data) {
