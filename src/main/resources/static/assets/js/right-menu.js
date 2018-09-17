@@ -1,4 +1,5 @@
-function RightMenu(menu) {
+function RightMenu(menu, control) {
+    this.control = control;
     this.menu = menu;
     this.ele = "";
     this.eleLoc = {};
@@ -30,9 +31,10 @@ function RightMenu(menu) {
         document.onclick = function () {
             $("#" + menu).hide();
         };
-        document.oncontextmenu = function (e) {
+        $("#" + _this.control).oncontextmenu = function (e) {
             let mouLoc = _this.mouseLocation(e);
-            if(JSON.stringify(_this.eleLoc) !== "{}"){
+            _this.moveElem(menu, mouLoc);
+            /*if(JSON.stringify(_this.eleLoc) !== "{}"){
                 let range = _this.inRange(_this.eleLoc, mouLoc);
                 if(range){
                     $("#" + menu).show();
@@ -41,8 +43,8 @@ function RightMenu(menu) {
                     return false;
                 }
             }
-            $("#" + menu).hide();
-            return true;
+            $("#" + menu).hide();*/
+            return false;
         };
     };
 }
