@@ -55,4 +55,106 @@
             </div>
         </form>
     </div>
+
+    <div id="cadre_list">
+            <div class="container-fluid">
+                <div style="margin-bottom:1%;">
+                    <button type="button" class="btn btn-info">
+                        <i class="glyphicon glyphicon-plus mr-5"></i> 新增
+                    </button>
+                </div>
+                <table id="cadre_info_list"  class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th class="tab_before_oper">
+                            <label><input type="checkbox" onclick="checkboxClick(this);"></label>
+                        </th>
+                        <th>干部姓名</th>
+                        <th>干部编号</th>
+                        <th>所在岗位</th>
+                        <th>干部状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tab_before_oper">
+                            <label><input type="checkbox" name="sub_checkbox"></label>
+                        </td>
+                        <td>张XXX</td>
+                        <td>0000001</td>
+                        <td>董事长</td>
+                        <td>正常</td>
+                        <td>
+                            <button class="cadre_view inline-block btn btn-info btn-link btn-xs text-modify"
+                                    title="查看" type="button">
+                                <i class="glyphicon glyphicon glyphicon-eye-open"
+                                   style="color: blue"></i></button>
+                            <button class="inline-block btn btn-info btn-link btn-xs text-modify"
+                                    title="修改" type="button">
+                                <i class="glyphicon glyphicon glyphicon-edit"
+                                   style="color: blue"></i></button>
+                        </td>
+                    </tr>
+                    <tr class="active">
+                        <td class="tab_before_oper">
+                            <label><input type="checkbox" name="sub_checkbox"></label>
+                        </td>
+                        <td>马XXX</td>
+                        <td>0000002</td>
+                        <td>总经理</td>
+                        <td>正常</td>
+                        <td>
+                            <button class="cadre_view inline-block btn btn-info btn-link btn-xs text-modify"
+                                    title="查看" type="button">
+                                <i class="glyphicon glyphicon glyphicon-eye-open"
+                                   style="color: blue"></i></button>
+                            <button class="inline-block btn btn-info btn-link btn-xs text-modify"
+                                    title="修改" type="button">
+                                <i class="glyphicon glyphicon glyphicon-edit"
+                                   style="color: blue"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tab_before_oper">
+                            <label><input type="checkbox" name="sub_checkbox"></label>
+                        </td>
+                        <td>李XXX</td>
+                        <td>0000003</td>
+                        <td>总监</td>
+                        <td>正常</td>
+                        <td>
+                            <button class="cadre_view inline-block btn btn-info btn-link btn-xs text-modify"
+                                    title="查看" type="button">
+                                <i class="glyphicon glyphicon glyphicon-eye-open"
+                                   style="color: blue"></i></button>
+                            <button class="inline-block btn btn-info btn-link btn-xs text-modify"
+                                    title="修改" type="button">
+                                <i class="glyphicon glyphicon glyphicon-edit"
+                                   style="color: blue"></i></button>
+                        </td>
+                    </tr>
+                    <tr class="active">
+                        <td class="tab_before_oper">
+                            <label><input type="checkbox" name="sub_checkbox"></label>
+                        </td>
+                        <td>周XXX</td>
+                        <td>0000004</td>
+                        <td>主管</td>
+                        <td>正常</td>
+                        <td>
+                            <button class="cadre_view inline-block btn btn-info btn-link btn-xs text-modify"
+                                    title="查看" type="button">
+                                <i class="glyphicon glyphicon glyphicon-eye-open"
+                                   style="color: blue"></i></button>
+                            <button class="inline-block btn btn-info btn-link btn-xs text-modify"
+                                    title="修改" type="button">
+                                <i class="glyphicon glyphicon glyphicon-edit"
+                                   style="color: blue"></i></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 </div>
